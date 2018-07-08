@@ -25,6 +25,18 @@ $( document ).ready(function() {
 	div.hide();
 	div.css('opacity',1);
 	div.fadeIn(2000);
+	
+	function anim(item,time){
+		item.animate({
+    		marginLeft: "20px",
+    		marginRight: "20px",
+  		}, time );
+	}
+	anim($('#rooterItem1'),100);
+	anim($('#rooterItem2'),400);
+	anim($('#rooterItem3'),700);
+	anim($('#rooterItem4'),1000);
+
 });
 </script>
 
@@ -41,28 +53,28 @@ $( document ).ready(function() {
 		<div class="" id="rooterItems">
 
 			<a href='cgi-bin/luci'>
-			<div class="rooterItem" id="">
+			<div class="rooterItem" id="rooterItem1">
 				<div class="rooterItemTitle"><i class='icon icon-cog'></i> ROOter Admin</div>
 				<div class="rooterItemDesc">Continue to the ROOter Web GUI.</div>
 			</div>
 			</a>
 
 			<a href='status.html'>
-			<div class="rooterItem" id="">
+			<div class="rooterItem" id="rooterItem2">
 				<div class="rooterItemTitle"><i class='icon icon-signal'></i> Modem Status</div>
 				<div class="rooterItemDesc">See the Modem Status.</div>
 			</div>
 			</a>
 
 			<a href='http://www.ofmodemsandmen.com/redirect.html'>
-			<div class="rooterItem" id="">
+			<div class="rooterItem" id="rooterItem3">
 				<div class="rooterItemTitle"><i class='icon icon-comments'></i> ROOter Forum</div>
 				<div class="rooterItemDesc">Join the ROOter community as it discusses ROOter issues and features.</div>
 			</div>
 			</a>
 
 			<a href='http://www.ofmodemsandmen.com'>
-			<div class="rooterItem" id="">
+			<div class="rooterItem" id="rooterItem4">
 				<div class="rooterItemTitle"><i class='icon icon-earth'></i> ROOter Home</div>
 				<div class="rooterItemDesc">Find out all about new ROOter features and firmware availability.</div>
 			</div>
