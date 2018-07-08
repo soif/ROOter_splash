@@ -5,7 +5,10 @@
   <meta charset="utf-8">
 <script>
 
-file = 0;
+var file		= 0;
+var url_checkImg= 'splash_files/check.jpg';
+var url_splash	= 'splash.html';
+var url_luci	= 'cgi-bin/luci';
 
 function checkImageExists(imageUrl, callBack) {
 	var imageData = new Image();
@@ -17,9 +20,17 @@ function checkImageExists(imageUrl, callBack) {
 	};
 	imageData.src = imageUrl;
 }
-var imageFile = 'splash_files/check.jpg';
+function jump() {
+	console.log(file);
+	if (file == '0'){
+		window.location.href = url_luci;		
+	}
+	else{
+		window.location.href = url_splash;
+	}
+ }
 
-checkImageExists(imageFile, function(existsImage) {
+checkImageExists(url_checkImg, function(existsImage) {
 	if(existsImage == true) {
 		file =1;
 	}
@@ -27,16 +38,6 @@ checkImageExists(imageFile, function(existsImage) {
 		file = 0;
 	}
 });
-
-function jump() {
-	console.log(file);
-	if (file == '0'){
-		//window.location.href = "cgi-bin/luci";		
-	}
-	else{
-		//window.location.href = "splash.html";
-	}
- }
 
 </script>
 
