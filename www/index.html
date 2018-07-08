@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-  <meta charset="utf-8">
+<meta charset="utf-8">
 <script>
 
 var file		= 0;
-var url_checkImg= 'splash_files/check.jpg';
+var url_checkImg= 'splash_files/check.gif';
 var url_splash	= 'splash.html';
 var url_luci	= 'cgi-bin/luci';
 
@@ -21,7 +20,6 @@ function checkImageExists(imageUrl, callBack) {
 	imageData.src = imageUrl;
 }
 function jump() {
-	console.log(file);
 	if (file == '0'){
 		window.location.href = url_luci;		
 	}
@@ -29,7 +27,6 @@ function jump() {
 		window.location.href = url_splash;
 	}
  }
-
 checkImageExists(url_checkImg, function(existsImage) {
 	if(existsImage == true) {
 		file =1;
@@ -38,9 +35,7 @@ checkImageExists(url_checkImg, function(existsImage) {
 		file = 0;
 	}
 });
-
 </script>
-
 </head>
 <body onload="jump();" style="background-color: black"></body>
 </body>
