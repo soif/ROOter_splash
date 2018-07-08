@@ -33,10 +33,10 @@ footer{
 	border-top: 1px solid #DDD;
 	text-align: center;
 	font-size: 11px;
-	color: #666;
+	color: #999;
 }
 footer A{
-	color: #000;
+	color: #777;
 }
 /* @end */
 
@@ -238,5 +238,6 @@ footer A{
 }
 
 /* @end */
+
 
 
