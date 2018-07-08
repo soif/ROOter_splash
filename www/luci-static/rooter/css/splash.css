@@ -136,6 +136,12 @@ footer A{
 
 /* @group Page: Status
 --------------------------------------------------*/
+
+#rooterSplashStatus .rooterPageContent{
+	max-width: 950px;
+	margin: auto;
+}
+
 .modemStatusBlock{
 	margin-bottom: 30px;	
 }
