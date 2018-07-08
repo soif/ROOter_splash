@@ -12,11 +12,16 @@ Thumbs.db
 .#*
 .afpDeleted*
 
+# needed, but ALREADY included in ROOTer -----------------
+www/luci-static/bootstrap/
+www/luci-static/rooter/js/jquery.min.js
+
 
 # ignored dirs -----------------
 
 
 # ignored files -----------------
 __*
+
 
 !.gitkeep
