@@ -239,5 +239,15 @@ footer A{
 
 /* @end */
 
+/*Color changer */
+
+.rooterPageHead{
+	background: #55F;
+}
+.rooterItemTitle .icon,
+#rooterSplashStatus h3 .icon{
+	color: #55F;
+}
+
 
 
