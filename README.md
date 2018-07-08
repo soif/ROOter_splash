@@ -10,3 +10,6 @@ copy the content of the **/www/** folder into your device
 
 #### Splash Page
 
+![Desktop View](doc/splash_desktop.png "Desktop View")
+![Mobile View](doc/splash_mobile.png "Mobile View")
+
