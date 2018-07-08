@@ -1,9 +1,9 @@
-#Splash pages for ROOter
+# Splash pages for ROOter
 
 Feel free to use it, and or submit PR
 
 ## Install 
-copy the content of the **/www/** folder into your device
+Copy the content of the **/www/** folder into your device
 
 ## Screenshots
 
@@ -13,3 +13,5 @@ copy the content of the **/www/** folder into your device
 ![Desktop View](doc/splash_desktop.png "Desktop View")
 ![Mobile View](doc/splash_mobile.png "Mobile View")
 
+#### Status Page
+soon
