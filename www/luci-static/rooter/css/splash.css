@@ -20,6 +20,8 @@
 }
 .rooterPageContent{
 	padding: 5px 10px;
+	max-width: 950px;
+	margin: auto;
 }
 .rooterHeadTitle{
 	color: #fff;
@@ -28,14 +30,51 @@
 	font-size: 32px;
 	line-height: 120%;
 }
-
-footer{
+.rooterPageFoot{
 	border-top: 1px solid #DDD;
-	text-align: center;
+	margin-top: 20px;
+	padding: 10px 10px;
+	max-width: 950px;
+	margin: auto;
 	font-size: 11px;
-	color: #999;
 }
-footer A{
+.rooterFootMenu{
+	float: left;
+	margin-bottom: 10px;
+}
+.rooterFootMenu A{
+	text-decoration: none;
+}
+.rooterFootMenu A:hover{
+	color: #000;
+}
+.rooterFootMenu UL{
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	display: inline-block;
+}
+.rooterFootMenu LI{
+	float: left;
+	padding: 0;
+	margin: 0;
+	list-style: none;	
+}
+.rooterFootMenu LI A{
+	padding: 0 10px;
+	color: #555;	
+}
+.rooterFootMenu LI:first-child A{
+	padding-left: 0;
+}
+.rooterFootCredits{
+	float: right;
+	padding: 0;
+	margin: 0;
+	color: #999;
+	text-align: right;
+}
+.rooterFootCredits A{
 	color: #777;
 }
 /* @end */
@@ -74,6 +113,8 @@ footer A{
 	text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
 }
 
+/* @end */
+
 @media only screen and (max-width: 600px) {
     .rooterHeadBox{
 		text-align: center;
@@ -86,9 +127,12 @@ footer A{
     .rooterTagline {
         display: none;
     }
+    .rooterFootCredits,
+    .rooterFootMenu{
+		float: none;
+		text-align: center;
+	}
 }
-/* @end */
-
 
 #rooterItems{
 	clear: both;
@@ -131,27 +175,23 @@ footer A{
 	margin-left: 220px;
 	margin-top: 0.7em;
 }
-
 /* @end */
+
+
 
 /* @group Page: Status
 --------------------------------------------------*/
 
-#rooterSplashStatus .rooterPageContent{
-	max-width: 950px;
-	margin: auto;
-}
-
 .modemStatusBlock{
 	margin-bottom: 30px;	
 }
-
 #rooterSplashStatus h3{
 	clear:both;
+	font-size: 18px;
+	color: #55F;
 }
 #rooterSplashStatus h3 .icon{
-	color: #55F;
-	margin-right: 5px;
+	margin-right: 3px;
 }
 #rooterSplashStatus h3 .msCell{
 	color: #666;
@@ -245,7 +285,7 @@ footer A{
 	background: #55F;
 }
 .rooterItemTitle .icon,
-#rooterSplashStatus h3 .icon{
+#rooterSplashStatus h3{
 	color: #55F;
 }
 
