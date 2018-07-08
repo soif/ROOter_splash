@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>ROOTer Modem Status - LuCI</title>
-		<!--[if lt IE 9]><script src="/luci-static/bootstrap/html5.js?"></script><![endif]-->
-		<meta name="viewport" content="initial-scale=1.0">
-		<link rel="stylesheet" href="/luci-static/bootstrap/cascade.css">
-		<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="/luci-static/bootstrap/mobile.css" type="text/css" />
-		<link rel="shortcut icon" href="/luci-static/bootstrap/favicon.ico">
+ <head>
+	<title>ROOTer Modem Status - LuCI</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="luci-static/bootstrap/cascade.css">
+	<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="luci-static/bootstrap/mobile.css" type="text/css" />
+	<link rel="stylesheet" href="luci-static/rooter/css/iconmoon_splash.css">
+	<link rel="stylesheet" href="luci-static/rooter/css/splash.css">
+
+	<link rel="SHORTCUT ICON" href="luci-static/rooter/img/favicon.gif">
+	<link rel="icon" type="image/gif" href="luci-static/rooter/img/favicon.gif">
+
     <style type="text/css">
-<!--
-.lang_enSoftware header a {
-	text-align: center;
-	font-size: 24px;
-}
--->
+
 	.center {
     display: block;
     margin-left: auto;
@@ -33,20 +34,17 @@ body {
     </style>
 	</head>
 
-<body class="lang_enSoftware">
-<p>Modem Status</p>
-<noscript>
-<div class="alert-message warning">
-				<strong>JavaScript required!</strong><br />
-				You must enable JavaScript in your browser or LuCI will not work properly.
-			</div>
-		</noscript>
+ <body id='rooterSplashStatus' class='rooterSplash'>
 
-		<div id="maincontent" class="container">
 
+	<div class='rooterPageHead'>
+			<div class="rooterHeadTitle">Modem Status</div>
+	</div>
+
+	<div class='rooterPageContent'>
 <!-- #################################################### -->
 
-<script src="/luci-static/rooter/js/jquery.min.js"></script>
+<script src="luci-static/rooter/js/jquery.min.js"></script>
 <script language="javascript">
 	$( document ).ready(function() {
 		var def_interval = 100;
@@ -158,187 +156,115 @@ body {
 </script>
 
 <style>
-h3{
-	clear:both;
-	padding: 30px 0 5px 0;
-}
-h3 .msCell{
-	color: #666;
-}
-.modemStatusRow{
-	clear:both;
-	padding-bottom: 20px;
-	overflow: hidden;
-}
-.modemStatusRow .msTitle{
-	padding: 5px 5px ;
-	background: #484848;
-	color: #fff;
-}
-.modemStatusRow .msCell{
-	display: inline-block;
-	margin-top: 10px;
-	float:left;
-	border: 1px solid #eee;
-	padding-bottom: 5px;
-}
-.modemStatusRow1 .msCell{
-	width: 176px;
-	margin: 10px 5px 0 5px;	
-	text-align: center;
-}
-.modemStatusRow1 SPAN B{
-	font-weight: bold;
-	font-size: 70px;
-	line-height: 110%;
-}
-.modemStatusRow1 .msDesc{
-	color: #000;
-	font-size: 12px;
-}
-.modemStatusRow2 .msCell{
-	margin: 10px 5px;
-	text-align: center;
-}
-.modemStatusRow2 SPAN{
-	display: inline-block;
-	padding: 5px 5px ;
-	font-size: 14px;
-}
-#counter_div{
-	color: #000;
-	font-weight: normal;
-	font-size: 14px;
-}
-#counter_val{
-	color: #F00;
-	font-size: 32px;
-	font-weight: bold;
-}
-#msCell_per{}
-#msCell_csq{}
-#msCell_rssi{}
-#msCell_rscp{}
-#msCell_ecio{}
-.level_0{
-	color: #0F0;	// green 
-}
-.level_1{
-	color: #0CB;	// green blue
-}
-.level_2{
-	color: #00F;	// blue
-}
-.level_3{
-	color: #F0F;	// violet 
-}
-.level_4{
-	color: #F80;	// orange
-}
-.level_5{
-	color: #F00; // red
-}
-.level_6{
-	color: #FF0; // yellow
-}
 
 </style>
 
-<div id='warn_login' class="alert-message">Enter your credentials : <input name='luci_username' id='luci_username' placeholder="user name"> <input name='luci_password' id='luci_password' type='password' placeholder="password"></div>
+		<noscript>
+			<div class="alert-message warning">
+				<strong>JavaScript required!</strong><br />
+				You must enable JavaScript in your browser or LuCI will not work properly.
+			</div>
+		</noscript>
 
+		<div id='warn_login' class="alert-message">Enter your credentials : <input name='luci_username' id='luci_username' placeholder="user name"> <input name='luci_password' id='luci_password' type='password' placeholder="password"></div>
 
-<h3 name="content"><div id="counter_div"  class='pull-right'><span id='counter_prefix'></span> <span id='counter_val'>0</span> sec</div>Signal</h3>
+		<div class="modemStatusBlock">
+			<h3><div id="counter_div"  class='pull-right'><span id='counter_prefix'></span> <span id='counter_val'>0</span> sec</div>  
+				<i class="icon icon-signal"></i> Signal</h3>
 
-	<div class='modemStatusRow modemStatusRow1'>
-		<div class='msCell' id='msCell_per'>
-			<div class='msTitle'>Strength (%)</div>
-			<span>-</span>
+			<div class='modemStatusRow modemStatusRow1'>
+				<div class='msCell' id='msCell_per'>
+					<div class='msTitle'>Strength (%)</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_csq'>
+					<div class='msTitle'>CSQ</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_rssi'>
+					<div class='msTitle'>RSSI (dBm)</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_rscp'>
+					<div class='msTitle'>RSCP (dBm) RSRP</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_ecio'>
+					<div class='msTitle'>ECIO (dB) RSRQ</div>
+					<span>-</span>
+				</div>
+			</div>
 		</div>
-		<div class='msCell' id='msCell_csq'>
-			<div class='msTitle'>CSQ</div>
-			<span>-</span>
+
+		<div class="modemStatusBlock">
+			<h3><i class="icon icon-podcast"></i> Network - <span class="msCell" id='msCell_cops'><span></span></span></h3>
+
+			<div class='modemStatusRow modemStatusRow2'>
+				<div class='msCell' id='msCell_mode'>
+					<div class='msTitle'>Mode</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_mcc'>
+					<div class='msTitle'>MCC</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_mnc'>
+					<div class='msTitle'>MNC</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_rnc'>
+					<div class='msTitle'>RNC/eNB ID</div>
+					<span>-</span> <i id='msCell_rncn'><span>-</span></i>
+				</div>
+
+				<div class='msCell' id='msCell_lac'>
+					<div class='msTitle'>LAC</div>
+					<span>-</span> <i id='msCell_lacn'><span>-</span></i>
+				</div>
+				<div class='msCell' id='msCell_cid'>
+					<div class='msTitle'>Cell ID</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_channel'>
+					<div class='msTitle'>Channel</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_lband'>
+					<div class='msTitle'>Bands</div>
+					<span>-</span>
+				</div>
+			</div>
 		</div>
-		<div class='msCell' id='msCell_rssi'>
-			<div class='msTitle'>RSSI (dBm)</div>
-			<span>-</span>
+
+		<div class="modemStatusBlock">
+			<h3><i class="icon icon-signal"></i> Device - <span class="msCell" id='msCell_conntype'><span></span></span></h3>
+
+			<div class='modemStatusRow modemStatusRow2'>
+				<div class='msCell' id='msCell_modem'>
+					<div class='msTitle'>Modem</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_proto'>
+					<div class='msTitle'>Protocol</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_port'>
+					<div class='msTitle'>Port</div>
+					<span>-</span>
+				</div>
+				<div class='msCell' id='msCell_tempur'>
+					<div class='msTitle'>Temperature</div>
+					<span>-</span>
+				</div>
+			</div>
 		</div>
-		<div class='msCell' id='msCell_rscp'>
-			<div class='msTitle'>RSCP (dBm) RSRP</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_ecio'>
-			<div class='msTitle'>ECIO (dB) RSRQ</div>
-			<span>-</span>
-		</div>
+
 	</div>
+ 	
+	<footer>
+		<a href="http://www.ofmodemsandmen.com" target="_blank">ROOter</a> Splash Page by <a href="https://github.com/soif" target="_blank">Soif</a> and <a href="https://forums.whirlpool.net.au/user/483126" target="_blank">Dairyman</a>
+	</footer>
 
-
-<h3 name="content">Network - <span class="msCell" id='msCell_cops'><span></span></span></h3>
-
-	<div class='modemStatusRow modemStatusRow2'>
-		<div class='msCell' id='msCell_mode'>
-			<div class='msTitle'>Mode</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_mcc'>
-			<div class='msTitle'>MCC</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_mnc'>
-			<div class='msTitle'>MNC</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_rnc'>
-			<div class='msTitle'>RNC/eNB ID</div>
-			<span>-</span> <i id='msCell_rncn'><span>-</span></i>
-		</div>
-
-		<div class='msCell' id='msCell_lac'>
-			<div class='msTitle'>LAC</div>
-			<span>-</span> <i id='msCell_lacn'><span>-</span></i>
-		</div>
-		<div class='msCell' id='msCell_cid'>
-			<div class='msTitle'>Cell ID</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_channel'>
-			<div class='msTitle'>Channel</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_lband'>
-			<div class='msTitle'>Bands</div>
-			<span>-</span>
-		</div>
-	</div>
-
-
-<h3 name="content">Device - <span class="msCell" id='msCell_conntype'><span></span></span></h3>
-
-	<div class='modemStatusRow modemStatusRow2'>
-		<div class='msCell' id='msCell_modem'>
-			<div class='msTitle'>Modem</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_proto'>
-			<div class='msTitle'>Protocol</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_port'>
-			<div class='msTitle'>Port</div>
-			<span>-</span>
-		</div>
-		<div class='msCell' id='msCell_tempur'>
-			<div class='msTitle'>Temperature</div>
-			<span>-</span>
-		</div>
-	</div>
-
-<!-- #################################################### -->
-
-   <footer>
-   Modem Status Page by <a href="https://github.com/soif/" target="_blank">Soif</a> - Download the <a href="https://gist.github.com/soif/25f99b09559ec3b3606b85c26a802f4d" target="_blank">latest version</a> at Github.
-   </footer>
-   </div>
-  </div>
  </body>
 </html>
+

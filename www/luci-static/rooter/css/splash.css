@@ -1,10 +1,18 @@
 /* @override http://src.dev.lo.lo/ROOter/www/luci-static/rooter/css/splash.css */
 
+/*
+	CSS for ROOter splash pages
+	Copyright Francois Dechery
+	https://github.com/soif
+*/
+
+/* @group Splash Pages 
+--------------------------------------------------*/
+
 .rooterSplash{
 	padding: 0;
 	background: #F0F0F0;
 }
-
 .rooterPageHead{
 	background: #55F;
 	padding: 10px 5px;
@@ -13,7 +21,34 @@
 .rooterPageContent{
 	padding: 5px 10px;
 }
+.rooterHeadTitle{
+	color: #fff;
+	text-align: center;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 32px;
+	line-height: 120%;
+}
 
+footer{
+	border: none;
+	text-align: center;
+	font-size: 11px;
+	color: #666;
+}
+footer A{
+	color: #000;
+}
+/* @end */
+
+
+
+
+/* @group Page: Home
+--------------------------------------------------*/
+
+
+/* @group Logo
+++++++++++++++++++ */
 .rooterHeadBox{
 	font-size: 50px;
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -25,7 +60,6 @@
 	padding-top: 10px;
 	opacity: 0;
 }
-
 .rooterLogo{
 	background: url("../img/kangaroo_800.png") no-repeat;
 	background-size: 100%;
@@ -53,6 +87,8 @@
         display: none;
     }
 }
+/* @end */
+
 
 #rooterItems{
 	clear: both;
@@ -68,7 +104,6 @@
 	margin-bottom: 20px;
 	border-radius: 8px;
 	background-color: #fff;
-
 }
 .rooterItem:hover{
 	background-color: #F3F3FF;
@@ -88,7 +123,6 @@
 	font-size: 2em;
 	vertical-align: middle;
 }
-
 #rooterItems A{
 	text-decoration: none;	
 }
@@ -98,12 +132,104 @@
 	margin-left: 220px;
 	margin-top: 0.7em;
 }
-footer{
-	border: none;
-	text-align: center;
-	font-size: 11px;
+
+/* @end */
+
+/* @group Page: Status
+--------------------------------------------------*/
+.modemStatusBlock{
+	margin-bottom: 30px;	
+}
+
+#rooterSplashStatus h3{
+	clear:both;
+}
+#rooterSplashStatus h3 .icon{
+	color: #55F;
+	margin-right: 5px;
+}
+#rooterSplashStatus h3 .msCell{
 	color: #666;
 }
-footer A{
-	color: #000;
+.modemStatusRow{
+	clear:both;
+	padding-bottom: 20px;
+	overflow: hidden;
 }
+.modemStatusRow .msTitle{
+	padding: 5px 5px ;
+	background: #484848;
+	color: #fff;
+}
+.modemStatusRow .msCell{
+	display: inline-block;
+	margin-top: 10px;
+	float:left;
+	border: 1px solid #ccc;
+	padding-bottom: 5px;
+	background: #fff;
+}
+.modemStatusRow1 .msCell{
+	width: 176px;
+	margin: 10px 5px 0 5px;	
+	text-align: center;
+}
+.modemStatusRow1 SPAN B{
+	font-weight: bold;
+	font-size: 70px;
+	line-height: 110%;
+}
+.modemStatusRow1 .msDesc{
+	color: #000;
+	font-size: 12px;
+}
+.modemStatusRow2 .msCell{
+	margin: 10px 5px;
+	text-align: center;
+}
+.modemStatusRow2 SPAN{
+	display: inline-block;
+	padding: 5px 5px ;
+	font-size: 14px;
+}
+#counter_div{
+	color: #000;
+	font-weight: normal;
+	font-size: 14px;
+}
+#counter_val{
+	color: #F00;
+	font-size: 32px;
+	font-weight: bold;
+}
+#msCell_per{}
+#msCell_csq{}
+#msCell_rssi{}
+#msCell_rscp{}
+#msCell_ecio{}
+
+#rooterSplashStatus .level_0{
+	color: #0F0;	// green 
+}
+#rooterSplashStatus .level_1{
+	color: #0CB;	// green blue
+}
+#rooterSplashStatus .level_2{
+	color: #00F;	// blue
+}
+#rooterSplashStatus .level_3{
+	color: #F0F;	// violet 
+}
+#rooterSplashStatus .level_4{
+	color: #F80;	// orange
+}
+#rooterSplashStatus .level_5{
+	color: #F00; // red
+}
+#rooterSplashStatus .level_6{
+	color: #FF0; // yellow
+}
+
+/* @end */
+
+
