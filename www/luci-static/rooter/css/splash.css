@@ -66,10 +66,11 @@
 	padding: 20px 15px;
 	margin-bottom: 20px;
 	border-radius: 8px;
+	background-color: #fff;
 
 }
 .rooterItem:hover{
-	background-color: #F6F6FF;
+	background-color: #F3F3FF;
 	border-color: #AAA;
 }
 .rooterItemTitle{
