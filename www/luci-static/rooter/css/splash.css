@@ -1,0 +1,107 @@
+/* @override http://src.dev.lo.lo/ROOter/www/luci-static/rooter/css/splash.css */
+
+.rooterSplash{
+	padding: 0;
+	background: #F0F0F0;
+}
+
+.rooterPageHead{
+	background: #55F;
+	padding: 10px 5px;
+	margin-bottom: 20px;
+}
+.rooterPageContent{
+	padding: 10px 10px;
+}
+
+.rooterHeadBox{
+	font-size: 50px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #fff;
+	line-height: 100%;
+	overflow: hidden;
+	width: 460px;
+	margin: auto;
+	opacity: 0;
+}
+
+.rooterLogo{
+	background: url("../img/kangaroo_800.png") no-repeat;
+	background-size: 100%;
+	float: left;
+	height: 165px;
+	width: 250px;
+	opacity: 0.4;
+}
+.rooterTagline{
+	margin-left: 250px;
+	padding-left: 10px;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+}
+
+@media only screen and (max-width: 600px) {
+    .rooterHeadBox{
+		text-align: center;
+		width: auto;
+	}
+    .rooterLogo{
+		display: inline-block;
+		float: none;
+	}
+    .rooterTagline {
+        display: none;
+    }
+}
+
+#rooterItems{
+	clear: both;
+	max-width: 800px ;
+	margin: auto;
+}
+
+.rooterItem{
+	overflow: hidden;
+	border: 1px solid #EEE;
+	border-color: #EEE #DDD #DDD #EEE;
+	padding: 20px 15px;
+	margin-bottom: 20px;
+	border-radius: 8px;
+
+}
+.rooterItem:hover{
+	background-color: #F6F6FF;
+	border-color: #AAA;
+}
+.rooterItemTitle{
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+	padding-right: 10px;
+	color: #000;
+	line-height: 2em;
+}
+.rooterItemTitle .icon{
+	color: #55F;
+	margin-right: 8px;
+	font-size: 2em;
+	vertical-align: middle;
+}
+
+#rooterItems A{
+	text-decoration: none;	
+}
+.rooterItemDesc{
+	font-size: 14px;
+	color: #777;
+	margin-left: 220px;
+	margin-top: 0.7em;
+}
+footer{
+	border: none;
+	text-align: center;
+	font-size: 11px;
+	color: #666;
+}
+footer A{
+	color: #000;
+}

@@ -1,221 +1,79 @@
-<html>
-
 <!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml'>
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>ROOter Splash Page</title>
-  <meta http-equiv='content-type' content='text/html; charset=utf-8'            />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"                          />
-  <meta content="width=device-width,initial-scale=1,user-scalable=no" name="viewport" />
+<html lang="en">
+ <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-  	body {
-      margin: auto;
-      padding: 0;
-  		background-color: #C0C0C0;
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-  	}
-    .heading {
-      padding: 10px 16px 10px;
-      margin-bottom: 28px;
-      background: #747474;
-      border-bottom: 1px solid #343434;
-      line-height: 1.25;
-      text-align: center;
-    }
-    h1 {
-    }
-    .nav-cont {
-      text-align: center;
-      padding-bottom: 42px;
-    }
-    .nav {
-      display: inline-block;
-    }
-    .nav-link {
-      display: block;
-      padding: 20px;
-      vertical-align: middle;
-      text-align: left;
-      text-decoration: none;
-	  border-bottom: 2px solid #383838;
-      position: relative;
-      -ms-transition: opacity 0.25s;
-      -webkit-transition: opacity 0.25s;
-      -moz-transition: opacity 0.25s;
-      transition: opacity 0.25s;
-      opacity: 0.75;
-      filter: Alpha(opacity=075);
-      color: #000;
-      font-size: 20px;
-    }
-    .nav-link:after {
-      content: "";
-      display: block;
-      width: 100%;
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      border-bottom: 1px solid #686868;
-    }
-    .nav-link:hover {
-      opacity: 1;
-      filter: Alpha(opacity=100);
-    }
-    .nav-link__ico-cont {
-      display: inline-block;
-      vertical-align: middle;
-      width: 80px;
-      height: 70px;
-      margin-right: 20px;
-      text-align: center;
-      white-space: nowrap;
-    }
-    .nav-link__ico-cont:after {
-      content: "";
-      display: inline-block;
-      vertical-align: middle;
-      width: 0;
-      height: 100%;
-    }
-    .nav-link__ico {
-      display: inline-block;
-      vertical-align: middle;
-      max-width: 100%;
-      max-height: 100%;
-    }
-    .nav-link__txt {
-	display: inline-block;
-	vertical-align: middle;
-	font-weight: bold;
-    }
-    @media screen and (max-width: 800px){
-      h1 {
-        font-size: 1.4em;
-      }
-      .nav-link {
-        font-size: 16px;
-      }
-      .nav-link__ico-cont {
-        width: 60px;
-        height: 50px;
-        margin-right: 16px;
-      }
-    }
-  .nav-link1 {      display: block;
-      padding: 20px;
-      vertical-align: middle;
-      text-align: left;
-      text-decoration: none;
-      position: relative;
-	  border-bottom: 1px solid #383838;
-      -ms-transition: opacity 0.25s;
-      -webkit-transition: opacity 0.25s;
-      -moz-transition: opacity 0.25s;
-      transition: opacity 0.25s;
-      opacity: 0.75;
-      filter: Alpha(opacity=075);
-      color: #000;
-      font-size: 20px;
-}
-  .nav-cont .nav table tr td .nav__txt p {
-	color: #000;
-	font-size: 18px;
-}
-  .whitef {
-	color: #000000;
-}
-  </style>
-</head>
+	<link rel="stylesheet" href="luci-static/bootstrap/cascade.css">
+	<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="luci-static/bootstrap/mobile.css" type="text/css" />
+	<link rel="stylesheet" href="luci-static/rooter/css/iconmoon_splash.css">
+	<link rel="stylesheet" href="luci-static/rooter/css/splash.css">
 
-<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0">
-<center>
+	<link rel="SHORTCUT ICON" href="luci-static/rooter/img/favicon.gif">
+	<link rel="icon" type="image/gif" href="luci-static/rooter/img/favicon.gif">
+ </head>
 
-<table border="0" cellpadding="0" cellspacing="0" width="800">
-  <tr>
-    <td width="100%"><img border="0" src="splash_files/rooter.png" width="800" height="199"></td>
-  </tr>
-  
-    <td width="100%">
-      <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <tr>
-          <td valign="top">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-             <tr>
-                <td width="100%">
-                  <div class="nav-cont">
-                      <div class="nav">
-                          <table width="800" border="0">
-							<tr>
-    						<td width="45%"><a id="router" class="nav-link" href="/cgi-bin/luci" target="_blank"> 
-                          <span class="nav-link__ico-cont"> 
-                          <img class="nav-link__ico" alt="" src="./splash_files/kanga1.png" /> 
-                          </span> <span class="nav-link__txt">ROOter Web GUI</span> 
-                          </a></td>
-                        <td width="55%"><span class="nav__txt">
-								<p>Continue to the ROOter Web GUI.</p><p></p></span></td>
-						</tr>
-					  </table>
-                      
-                       
-                      <table width="800" border="0">
-							<tr>
-    						<td width="45%"><a id="manual" class="nav-link" href="status.html" target="_blank">
-                          <span class="nav-link__ico-cont">
-                            <img class="nav-link__ico" alt="" src="./splash_files/cellular.png" />
-                          </span>
-                          <span class="nav-link__txt">Modem Status</span>
-                        </a></td>
-                        <td width="55%"><span class="nav__txt">
-								<p>See the Modem Status.</p><p></p></span></td>
-						</tr>
-          </table>
-                      
-                          <table width="800" border="0">
-                            <tr>
-                                <td width="45%"><a id="rooter" class="nav-link" href="http://www.ofmodemsandmen.com/redirect.html" target="_self">
-                                <span class="nav-link__ico-cont">
-                                <img class="nav-link__ico" alt="" src="splash_files/forum.png" />
-                              </span>
-                            <span class="nav-link__txt">ROOter Forum</span></a></td>
-                                <td width="55%"><span class="nav__txt"><p>Join the ROOter community as it discusses ROOter issues and features.</p><p></p></span></td>
-                            </tr>
-                          </table>
-                          
-                          <table width="800" border="0">
-                            <tr>
-                                <td width="45%"><a id="rooter" class="nav-link" href="http://www.ofmodemsandmen.com" target="_self">
-                                <span class="nav-link__ico-cont">
-                                <img class="nav-link__ico" alt="" src="splash_files/home.png" />
-                              </span>
-                              <span class="nav-link__txt">ROOter Home Page</span></a></td>
-                                <td width="55%"><span class="nav__txt">
-                                <p>Find out all about new ROOter features and firmware availability.</p><p></p></span></td>
-                            </tr>
-                        </table>
-                        
-                      </div>
-                    </div>
-                  <p></td>
-                </tr>
-              </table>
-          </td>
-          </tr>
-      </table>
-    </td>
-  </tr>
-</table>
 
-<p>
-  <footer class="whitef">
-    ROOter Splash Page by <a href="www.ofmodemsandmen.com" target="_blank">Dairyman</a>
-  </footer>
-  
-</p>
-<p>&nbsp;</p>
-</center>
-</body>
+ <body id='rooterSplashHome' class='rooterSplash'>
 
+<script src="luci-static/rooter/js/jquery.min.js"></script>
+<script language="javascript">
+$( document ).ready(function() {
+	var div=$('.rooterHeadBox');
+	div.hide();
+	div.css('opacity',1);
+	div.fadeIn(2000);
+});
+</script>
+
+	<div class='rooterPageHead'>
+
+		<div class='rooterHeadBox'>
+			<div class='rooterLogo'></div>
+			<div class='rooterTagline'>The<br>ROOter<br>Project</div>
+		</div>
+	</div>
+
+	<div class='rooterPageContent'>
+
+		<div class="" id="rooterItems">
+
+			<a href='cgi-bin/luci'>
+			<div class="rooterItem" id="">
+				<div class="rooterItemTitle"><i class='icon icon-cog'></i> ROOter Admin</div>
+				<div class="rooterItemDesc">Continue to the ROOter Web GUI.</div>
+			</div>
+			</a>
+
+			<a href='status.html'>
+			<div class="rooterItem" id="">
+				<div class="rooterItemTitle"><i class='icon icon-signal'></i> Modem Status</div>
+				<div class="rooterItemDesc">See the Modem Status.</div>
+			</div>
+			</a>
+
+			<a href='http://www.ofmodemsandmen.com/redirect.html'>
+			<div class="rooterItem" id="">
+				<div class="rooterItemTitle"><i class='icon icon-comments'></i> ROOter Forum</div>
+				<div class="rooterItemDesc">Join the ROOter community as it discusses ROOter issues and features.</div>
+			</div>
+			</a>
+
+			<a href='http://www.ofmodemsandmen.com'>
+			<div class="rooterItem" id="">
+				<div class="rooterItemTitle"><i class='icon icon-home'></i> ROOter Home</div>
+				<div class="rooterItemDesc">Find out all about new ROOter features and firmware availability.</div>
+			</div>
+			</a>
+
+		</div>
+	</div>
+
+	<footer class="whitef">
+		<a href="http://www.ofmodemsandmen.com" target="_blank">ROOter</a> Splash Page by <a href="https://github.com/soif" target="_blank">Soif</a> and <a href="https://forums.whirlpool.net.au/user/483126" target="_blank">Dairyman</a>
+	</footer>
+
+ </body>
 </html>
 
