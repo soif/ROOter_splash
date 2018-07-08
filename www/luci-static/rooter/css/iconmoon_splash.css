@@ -24,6 +24,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon-power-off:before {
   content: "\f011";
 }
@@ -38,6 +39,12 @@
 }
 .icon-home:before {
   content: "\f015";
+}
+.icon-exclamation-triangle:before {
+  content: "\f071";
+}
+.icon-warning:before {
+  content: "\f071";
 }
 .icon-comments:before {
   content: "\f086";
@@ -56,4 +63,7 @@
 }
 .icon-podcast:before {
   content: "\e91c";
+}
+.icon-earth:before {
+  content: "\e9ca";
 }
