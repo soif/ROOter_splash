@@ -14,4 +14,6 @@ Copy the content of the **/www/** folder into your device
 ![Mobile View](doc/splash_mobile.png "Mobile View")
 
 #### Status Page
-soon
+
+![Desktop View](doc/status_desktop.png "Desktop View")
+![Mobile View](doc/status_mobile.png "Mobile View")
