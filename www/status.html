@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ROOTer Modem Status - LuCI</title>
+		<!--[if lt IE 9]><script src="/luci-static/bootstrap/html5.js?"></script><![endif]-->
+		<meta name="viewport" content="initial-scale=1.0">
+		<link rel="stylesheet" href="/luci-static/bootstrap/cascade.css">
+		<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="/luci-static/bootstrap/mobile.css" type="text/css" />
+		<link rel="shortcut icon" href="/luci-static/bootstrap/favicon.ico">
+    <style type="text/css">
+<!--
+.lang_enSoftware header a {
+	text-align: center;
+	font-size: 24px;
+}
+-->
+	.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+body {
+	background-color: #CCC;
+}
+    .lang_enSoftware p {
+	text-align: center;
+	font-size: 36px;
+	font-weight: bold;
+}
+    </style>
+	</head>
+
+<body class="lang_enSoftware">
+<p>Modem Status</p>
+<noscript>
+<div class="alert-message warning">
+				<strong>JavaScript required!</strong><br />
+				You must enable JavaScript in your browser or LuCI will not work properly.
+			</div>
+		</noscript>
+
+		<div id="maincontent" class="container">
+
+<!-- #################################################### -->
+
+<script src="/luci-static/rooter/js/jquery.min.js"></script>
+<script language="javascript">
+	$( document ).ready(function() {
+		var def_interval = 100;
+		
+		/* https://forums.whirlpool.net.au/archive/2473085 */
+		var levels  ={};
+		levels.per	=[101, 85, 70, 55, 40, 25, 10];
+		levels.rssi	=[0, -75, -90, -100, -109, -113];
+		levels.rscp	=[-50, -70, -90, -100, -112, -136, -140];
+		levels.csq	=[-1000];
+		levels.ecio	=[-1000];
+		var names	={};
+		names.per	=['Perfect', 'Excellent', 'Good', 'Medium', 'Low', 'Bad', 'Dead'];
+		names.rssi	=['High', 'Medium', 'Poor', 'Bad', 'None'];
+		names.rscp	=['High (3G) :High (4G)', 'Medium (3G) : High (4G)', 'Poor (3G) : Good (4G)', 'Weak (3G) : Medium (4G)', 'None (3G) : Poor (4G)', 'None'];
+
+		var loginWarning=$('#warn_login');
+		var counterDiv	=$('#counter_val');
+		var prefixDiv	=$('#counter_prefix');
+
+		loginWarning.hide();
+		/* -------------------------------------------- */
+		var prefix		='';
+		var last_data	='';
+		var last_changed=UnixEpoch();
+		var interval 	= def_interval;
+		function doAjax() {
+			var url='/cgi-bin/luci/admin/modem/get_csq?' ;
+			url = url + 'luci_username=' + $('#luci_username').val() + '&luci_password=' + $('#luci_password').val() + '&';
+			url = url + 't=' + Date.now();
+			var tmp;
+			$.ajax({
+					type: 'GET',
+					url: url,
+					data: $(this).serialize(),
+					dataType: 'json',
+					success: function (data) {
+						loginWarning.hide();
+						interval=def_interval;
+						$.each( data, function( key, val ) {
+							tmp=val.replace(/\([^\)]+\) /g,'');
+							tmp=tmp.replace(/Bandwidth /g,'');
+							tmp=tmp.replace(/ dBm?/g,'');
+							tmp=tmp.replace(/%/g,'');
+							tmp=tmp.trim();
+							tmp=SetLevel(tmp,key);
+							$("#msCell_"+key+" > span").html(tmp);
+						});
+						tmp=data.per+';'+data.rssi+';'+data.csq+';'+data.ecio+';'+data.rscp+';'+data.rnc+';'+data.cid+';'+data.channel+';'+data.lband;
+
+						if(last_data != tmp){
+							last_data	=tmp;
+							last_changed=UnixEpoch();
+						}
+
+						prefix='since';
+						if(data.per == '-' ){
+							prefix='Connecting... ';
+						}
+					},
+					statusCode: {
+						403: function() {
+							loginWarning.show();
+							interval=def_interval * 3;
+							UpdateCounter();
+						}
+  					},
+					complete: function (data) {
+						UpdateCounter();
+						setTimeout(doAjax, interval);
+					}
+			});
+		}
+		setTimeout(doAjax, interval);
+
+		/* -------------------------------------------- */
+		function UpdateCounter(){
+			prefixDiv.html(prefix);
+			var count=(UnixEpoch() - last_changed) / 10;
+			counterDiv.html( count.toFixed(1)  );
+		}
+		
+		/* -------------------------------------------- */
+		function UnixEpoch(){
+			return Math.round(Date.now() / 100);
+		}
+
+		/* -------------------------------------------- */
+		function SetLevel(str,key){
+			var desc="<br><i class='msDesc'>&nbsp;</i>";
+			if(key in levels){
+				var css="";
+				var val = parseInt(str, 10);
+				if (isNaN(val)) { val = 0 ; }
+				var len = levels[key].length;
+				for (var i = 0; i < len; i++) {
+					if(val < levels[key][i]){
+						css="level_"+i;
+						if(key in names){
+							desc="<br><i class='msDesc'>"+names[key][i]+"</i>";
+						}
+					}
+				}
+				str="<b class='"+css+"'>"+str+"</b>"+desc;
+			}
+			return str;
+		}
+	});
+</script>
+
+<style>
+h3{
+	clear:both;
+	padding: 30px 0 5px 0;
+}
+h3 .msCell{
+	color: #666;
+}
+.modemStatusRow{
+	clear:both;
+	padding-bottom: 20px;
+	overflow: hidden;
+}
+.modemStatusRow .msTitle{
+	padding: 5px 5px ;
+	background: #484848;
+	color: #fff;
+}
+.modemStatusRow .msCell{
+	display: inline-block;
+	margin-top: 10px;
+	float:left;
+	border: 1px solid #eee;
+	padding-bottom: 5px;
+}
+.modemStatusRow1 .msCell{
+	width: 176px;
+	margin: 10px 5px 0 5px;	
+	text-align: center;
+}
+.modemStatusRow1 SPAN B{
+	font-weight: bold;
+	font-size: 70px;
+	line-height: 110%;
+}
+.modemStatusRow1 .msDesc{
+	color: #000;
+	font-size: 12px;
+}
+.modemStatusRow2 .msCell{
+	margin: 10px 5px;
+	text-align: center;
+}
+.modemStatusRow2 SPAN{
+	display: inline-block;
+	padding: 5px 5px ;
+	font-size: 14px;
+}
+#counter_div{
+	color: #000;
+	font-weight: normal;
+	font-size: 14px;
+}
+#counter_val{
+	color: #F00;
+	font-size: 32px;
+	font-weight: bold;
+}
+#msCell_per{}
+#msCell_csq{}
+#msCell_rssi{}
+#msCell_rscp{}
+#msCell_ecio{}
+.level_0{
+	color: #0F0;	// green 
+}
+.level_1{
+	color: #0CB;	// green blue
+}
+.level_2{
+	color: #00F;	// blue
+}
+.level_3{
+	color: #F0F;	// violet 
+}
+.level_4{
+	color: #F80;	// orange
+}
+.level_5{
+	color: #F00; // red
+}
+.level_6{
+	color: #FF0; // yellow
+}
+
+</style>
+
+<div id='warn_login' class="alert-message">Enter your credentials : <input name='luci_username' id='luci_username' placeholder="user name"> <input name='luci_password' id='luci_password' type='password' placeholder="password"></div>
+
+
+<h3 name="content"><div id="counter_div"  class='pull-right'><span id='counter_prefix'></span> <span id='counter_val'>0</span> sec</div>Signal</h3>
+
+	<div class='modemStatusRow modemStatusRow1'>
+		<div class='msCell' id='msCell_per'>
+			<div class='msTitle'>Strength (%)</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_csq'>
+			<div class='msTitle'>CSQ</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_rssi'>
+			<div class='msTitle'>RSSI (dBm)</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_rscp'>
+			<div class='msTitle'>RSCP (dBm) RSRP</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_ecio'>
+			<div class='msTitle'>ECIO (dB) RSRQ</div>
+			<span>-</span>
+		</div>
+	</div>
+
+
+<h3 name="content">Network - <span class="msCell" id='msCell_cops'><span></span></span></h3>
+
+	<div class='modemStatusRow modemStatusRow2'>
+		<div class='msCell' id='msCell_mode'>
+			<div class='msTitle'>Mode</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_mcc'>
+			<div class='msTitle'>MCC</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_mnc'>
+			<div class='msTitle'>MNC</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_rnc'>
+			<div class='msTitle'>RNC/eNB ID</div>
+			<span>-</span> <i id='msCell_rncn'><span>-</span></i>
+		</div>
+
+		<div class='msCell' id='msCell_lac'>
+			<div class='msTitle'>LAC</div>
+			<span>-</span> <i id='msCell_lacn'><span>-</span></i>
+		</div>
+		<div class='msCell' id='msCell_cid'>
+			<div class='msTitle'>Cell ID</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_channel'>
+			<div class='msTitle'>Channel</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_lband'>
+			<div class='msTitle'>Bands</div>
+			<span>-</span>
+		</div>
+	</div>
+
+
+<h3 name="content">Device - <span class="msCell" id='msCell_conntype'><span></span></span></h3>
+
+	<div class='modemStatusRow modemStatusRow2'>
+		<div class='msCell' id='msCell_modem'>
+			<div class='msTitle'>Modem</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_proto'>
+			<div class='msTitle'>Protocol</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_port'>
+			<div class='msTitle'>Port</div>
+			<span>-</span>
+		</div>
+		<div class='msCell' id='msCell_tempur'>
+			<div class='msTitle'>Temperature</div>
+			<span>-</span>
+		</div>
+	</div>
+
+<!-- #################################################### -->
+
+   <footer>
+   Modem Status Page by <a href="https://github.com/soif/" target="_blank">Soif</a> - Download the <a href="https://gist.github.com/soif/25f99b09559ec3b3606b85c26a802f4d" target="_blank">latest version</a> at Github.
+   </footer>
+   </div>
+  </div>
+ </body>
+</html>
